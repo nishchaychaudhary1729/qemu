@@ -81,7 +81,7 @@ virtqueue_alloc_element(void *elem, size_t sz, unsigned in_num, unsigned out_num
 virtqueue_fill(void *vq, const void *elem, unsigned int len, unsigned int idx) "vq %p elem %p len %u idx %u"
 virtqueue_flush(void *vq, unsigned int count) "vq %p count %u"
 virtqueue_pop(void *vq, void *elem, unsigned int in_num, unsigned int out_num) "vq %p elem %p in_num %u out_num %u"
-virtio_queue_notify(void *vdev, int n, void *vq) "vdev %p n %d vq %p"
+virtio_queue_notify(void *vdev, int n, void *vq, uint64_t notify_count) "vdev %p n %d vq %p notify_count: %" PRIu64
 virtio_notify_irqfd_deferred_fn(void *vdev, void *vq) "vdev %p vq %p"
 virtio_notify(void *vdev, void *vq) "vdev %p vq %p"
 virtio_set_status(void *vdev, uint8_t val) "vdev %p val %u"

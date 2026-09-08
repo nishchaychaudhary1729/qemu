@@ -149,6 +149,9 @@ struct VirtQueue
 
     unsigned int inuse;
 
+    /* Number of times the queue was notified by the guest */
+    uint64_t notify_count;
+
     uint16_t vector;
     VirtIOHandleOutput handle_output;
     VirtIODevice *vdev;
@@ -2351,6 +2354,7 @@ static void __virtio_queue_reset(VirtIODevice *vdev, uint32_t i)
     vdev->vq[i].notification = true;
     vdev->vq[i].vring.num = vdev->vq[i].vring.num_default;
     vdev->vq[i].inuse = 0;
+    vdev->vq[i].notify_count = 0;
     virtio_virtqueue_reset_region_cache(&vdev->vq[i]);
 }
 
@@ -2512,7 +2516,8 @@ static void virtio_queue_notify_vq(VirtQueue *vq)
             return;
         }
 
-        trace_virtio_queue_notify(vdev, vq - vdev->vq, vq);
+        vq->notify_count++;
+        trace_virtio_queue_notify(vdev, vq - vdev->vq, vq, vq->notify_count);
         vq->handle_output(vdev, vq);
 
         if (unlikely(vdev->start_on_kick)) {
@@ -2529,16 +2534,22 @@ void virtio_queue_notify(VirtIODevice *vdev, int n)
         return;
     }
 
-    trace_virtio_queue_notify(vdev, vq - vdev->vq, vq);
     if (vq->host_notifier_enabled) {
         event_notifier_set(&vq->host_notifier);
     } else if (vq->handle_output) {
+        vq->notify_count++;
+        trace_virtio_queue_notify(vdev, vq - vdev->vq, vq, vq->notify_count);
         vq->handle_output(vdev, vq);
 
         if (unlikely(vdev->start_on_kick)) {
             virtio_set_started(vdev, true);
         }
     }
+}
+
+uint64_t virtio_queue_get_notify_count(VirtQueue *vq)
+{
+    return vq ? vq->notify_count : 0;
 }
 
 uint16_t virtio_queue_vector(VirtIODevice *vdev, int n)
@@ -2849,6 +2860,7 @@ static const VMStateDescription vmstate_virtqueue = {
     .minimum_version_id = 1,
     .fields = (const VMStateField[]) {
         VMSTATE_UINT64(vring.avail, struct VirtQueue),
+        VMSTATE_UINT64(notify_count, struct VirtQueue),
         VMSTATE_UINT64(vring.used, struct VirtQueue),
         VMSTATE_END_OF_LIST()
     }
@@ -2864,6 +2876,7 @@ static const VMStateDescription vmstate_packed_virtqueue = {
         VMSTATE_UINT16(used_idx, struct VirtQueue),
         VMSTATE_BOOL(used_wrap_counter, struct VirtQueue),
         VMSTATE_UINT32(inuse, struct VirtQueue),
+        VMSTATE_UINT64(notify_count, struct VirtQueue),
         VMSTATE_END_OF_LIST()
     }
 };
