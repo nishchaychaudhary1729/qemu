@@ -1,0 +1,21 @@
+unmodified qemu
+
+without tracing
+=== Devices in /dev ===
+crw-rw-rw-    1 0        0           1,   3 Sep 10 07:16 /dev/null
+brw-------    1 0        0         253,   0 Sep 10 07:16 /dev/vda
+crw-rw-rw-    1 0        0           1,   5 Sep 10 07:16 /dev/zero
+virtio workload start
+pass 1 done
+pass 2 done
+pass 3 done
+pass 4 done
+pass 5 done
+virtio workload done
+[   13.834743] reboot: Power down
+Elapsed: 18.84 seconds
+
+=== Trace Results (/home/student/Desktop/nishchay/qemu/qemu/trace.log) ===
+Trace log not found! 
+
+with tracing and counter
