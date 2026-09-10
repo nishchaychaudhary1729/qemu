@@ -29,7 +29,7 @@ pass 4 done
 pass 5 done
 virtio workload done
 [   13.834743] reboot: Power down
-Elapsed: 18.84 seconds
+Elapsed: 18.72 seconds
 
 === Trace Results (/home/student/Desktop/nishchay/qemu/qemu/trace.log) ===
 Trace log not found! 
