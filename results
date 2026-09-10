@@ -1,4 +1,20 @@
 unmodified qemu
+=== Devices in /dev ===
+crw-rw-rw-    1 0        0           1,   3 Sep 10 07:58 /dev/nul
+brw-------    1 0        0         253,   0 Sep 10 07:59 /dev/vda
+crw-rw-rw-    1 0        0           1,   5 Sep 10 07:58 /dev/zeo
+virtio workload start
+pass 1 done
+pass 2 done
+pass 3 done
+pass 4 done
+pass 5 done
+virtio workload done
+[   11.616949] reboot: Power down
+Elapsed: 18.62 seconds
+
+=== Trace Results (/home/student/Desktop/nishchay/qemu/qemu/trac=
+Trace log not found!
 
 without tracing
 === Devices in /dev ===
@@ -19,3 +35,70 @@ Elapsed: 18.84 seconds
 Trace log not found! 
 
 with tracing and counter
+=== Devices in /dev ===
+crw-rw-rw-    1 0        0           1,   3 Sep 10 08:02 /dev/null
+brw-------    1 0        0         253,   0 Sep 10 08:02 /dev/vda
+crw-rw-rw-    1 0        0           1,   5 Sep 10 08:02 /dev/zero
+virtio workload start
+pass 1 done
+pass 2 done
+pass 3 done
+pass 4 done
+pass 5 done
+virtio workload done
+[   11.672382] reboot: Power down
+Elapsed: 18.78 seconds
+
+=== Trace Results (/home/student/Desktop/nishchay/qemu/qemu/trace.log) ===
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+virtio_queue_notify vdev 0x5c557cc1a2a0 n 0 vq 0x5c557cc59120
+Total VirtQueue notifications recorded: 51
